@@ -58,12 +58,15 @@ RUN ./zsh-in-docker.sh \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
 
 COPY ./.zshrc /root/.zshrc
+COPY ./chsh /etc/pam.d/
 COPY ./supervisord.conf /etc/
 COPY ./docker-php-entrypoint /usr/local/bin/
 COPY ./docker-php-entrypoint /usr/local/bin/entrypoint
 
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
+
+RUN chsh -s /bin/zsh
 
 EXPOSE 9000
 EXPOSE 9001
