@@ -1,5 +1,16 @@
-![CodeMaster Logo](https://avatars3.githubusercontent.com/u/63756350?s=100&v=4)
-## [CodeMaster Soluções](https://codemastersolucoes.com)
+<p align="center">
+    <a href="https://codemastersolucoes.com" target="_blank">
+        <img data-testid="logo" src="https://cms-public-images.s3.amazonaws.com/logo.png">
+    </a>
+    <h1 align="center" style="margin-bottom: 0;">
+        Custom docker images for development environment
+    </h1>
+    <h3  align="center" style="margin-top: 0; padding-top: 0; margin-bottom: 2rem;">
+        <a style="margin-top: 0; padding-top: 0" href="https://codemastersolucoes.com" target="_blank">
+            CodeMaster Soluções
+        </a>
+    </h3>
+</p>
 
 # About these custom images
 
