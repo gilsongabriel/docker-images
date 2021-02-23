@@ -5,5 +5,5 @@ steps:
 
   -   id: 'Show docker-php-entrypoint content'
       name: 'gcr.io/cloud-builders/docker'
-      args: ['exec','-t','app','cat','/usr/local/bin/docker-php-entrypoint']
+      args: ['exec','-t','php748a312','cat','/usr/local/bin/docker-php-entrypoint']
 
