@@ -65,7 +65,6 @@ COPY ./docker-php-entrypoint /usr/local/bin/entrypoint
 
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
-
 RUN chsh -s /bin/zsh
 
 EXPOSE 9000

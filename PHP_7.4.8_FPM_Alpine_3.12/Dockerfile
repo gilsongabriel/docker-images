@@ -1,13 +1,21 @@
 FROM php:7.4.8-fpm-alpine3.12
 LABEL maintainer="Gilson Gabriel <gilson@codemastersolucoes.com>"
 
-RUN apk add --no-cache shadow nano git unzip supervisor composer libxml2-dev libxslt-dev oniguruma-dev libzip-dev icu-dev \
-    unixodbc-dev autoconf make build-base \
+RUN apk add --no-cache shadow nano git unzip supervisor zsh-vcs libxml2-dev libxslt-dev \
+    oniguruma-dev libzip-dev icu-dev unixodbc-dev autoconf make build-base \
     && git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
     && docker-php-ext-install intl bcmath json pdo pdo_mysql xml xmlrpc xsl mbstring zip pcntl redis mysqli \
     && rm -rf /var/www/html \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apk/*
+
+RUN git config --global credential.helper 'cache --timeout=7200' && \
+    git config --global init.defaultBranch main && \
+    git config --global color.ui true
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+    && php composer-setup.php --filename=composer --install-dir=/usr/bin \
+    && php -r "unlink('composer-setup.php');"
 
 RUN curl -O https://download.microsoft.com/download/e/4/e/e4e67866-dffd-428c-aac7-8d28ddafb39b/msodbcsql17_17.5.2.2-1_amd64.apk
 
@@ -45,15 +53,15 @@ RUN ./zsh-in-docker.sh \
     -a 'bindkey "\$terminfo[kcuu1]" history-substring-search-up' \
     -a 'bindkey "\$terminfo[kcud1]" history-substring-search-down'
 
-# COPY ./zshrc ~/.zshrc
-
-RUN apk add --no-cache zsh-vcs
-
+COPY ./.zshrc /root/.zshrc
+COPY ./chsh /etc/pam.d/
 COPY ./supervisord.conf /etc/
 COPY ./docker-php-entrypoint /usr/local/bin/
 COPY ./docker-php-entrypoint /usr/local/bin/entrypoint
+
 RUN chmod +x /usr/local/bin/docker-php-entrypoint
 RUN chmod +x /usr/local/bin/entrypoint
+RUN chsh -s /bin/zsh
 
 EXPOSE 9000
 EXPOSE 9001

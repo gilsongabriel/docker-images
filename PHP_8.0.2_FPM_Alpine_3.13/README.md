@@ -6,7 +6,7 @@
 
 # About this custom image
 
-This image is customized from the official [PHP 8.0.1 FPM Alpine 3.13](https://hub.docker.com/_/php) image,
+This image is customized from the official [PHP 8.0.2 FPM Alpine 3.13](https://hub.docker.com/_/php) image,
 and added some packages to run applications [Laravel](https://laravel.com), along with some official packages:
  - [Horizon](https://laravel.com/docs/8.x/horizon)
  - [Telescope](https://laravel.com/docs/8.x/telescope)
@@ -51,7 +51,7 @@ and added some packages to run applications [Laravel](https://laravel.com), alon
 ### Create a Dockerfile in your PHP project
 
 ```dockerfile
-FROM codemastersolutions/php:8.0.1-fpm-alpine3.13
+FROM codemastersolutions/php:8.0.2-fpm-alpine3.13
 #The application files directory
 WORKDIR /app
 #Set permission to user www-data
@@ -77,7 +77,7 @@ docker run -it --rm --name my-running-app my-php-app
 version: "3.8"
 services:
   my-service-name:
-    image: codemastersolutions/php:8.0.1-fpm-alpine3.13
+    image: codemastersolutions/php:8.0.2-fpm-alpine3.13
     container_name: my-container-name
     volumes:
       - ./app-src:/app
