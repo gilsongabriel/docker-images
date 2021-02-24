@@ -2,12 +2,18 @@ FROM php:8.0.2-fpm-alpine3.13
 LABEL maintainer="Gilson Gabriel <gilson@codemastersolucoes.com>"
 
 RUN apk add --no-cache shadow yarn nano git unzip supervisor zsh-vcs libxml2-dev libxslt-dev \
-    oniguruma-dev libzip-dev icu-dev unixodbc-dev autoconf make build-base
+    oniguruma-dev libzip-dev icu-dev unixodbc-dev autoconf make build-base openrc
 
 RUN git config --global credential.helper 'cache --timeout=7200' && \
     git config --global init.defaultBranch main && \
     git config --global color.ui true
 
+RUN yarn global add nodejs @vue/cli
+
+RUN mkdir /run/openrc && \
+    mkdir /home/www-data/logs && \
+    touch /run/openrc/softlevel
+    
 RUN docker-php-ext-install intl bcmath pdo pdo_mysql xml xsl mbstring zip pcntl mysqli
     
 RUN rm -rf /var/www/html \

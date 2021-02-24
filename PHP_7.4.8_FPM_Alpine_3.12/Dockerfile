@@ -1,14 +1,20 @@
 FROM php:7.4.8-fpm-alpine3.12
 LABEL maintainer="Gilson Gabriel <gilson@codemastersolucoes.com>"
 
-RUN apk add --no-cache shadow nano git unzip supervisor zsh-vcs libxml2-dev libxslt-dev \
-    oniguruma-dev libzip-dev icu-dev unixodbc-dev autoconf make build-base \
+RUN apk add --no-cache shadow nano git unzip yarn supervisor zsh-vcs libxml2-dev libxslt-dev \
+    oniguruma-dev libzip-dev icu-dev unixodbc-dev autoconf make build-base openrc \
     && git clone https://github.com/phpredis/phpredis.git /usr/src/php/ext/redis \
     && docker-php-ext-install intl bcmath json pdo pdo_mysql xml xmlrpc xsl mbstring zip pcntl redis mysqli \
     && rm -rf /var/www/html \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /var/cache/apk/*
 
+RUN yarn global add nodejs @vue/cli
+
+RUN mkdir /run/openrc && \
+    mkdir /home/www-data/logs && \
+    touch /run/openrc/softlevel
+    
 RUN git config --global credential.helper 'cache --timeout=7200' && \
     git config --global init.defaultBranch main && \
     git config --global color.ui true
