@@ -76,7 +76,6 @@ plugins=(
     github
     gitignore
     laravel
-    laravel5
     lighthouse
     node
     npm
