@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  php814a315:
+    build: .
+    container_name: php814a315
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    restart: always
+    tty: true
