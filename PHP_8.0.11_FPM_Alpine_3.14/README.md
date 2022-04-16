@@ -1,7 +1,7 @@
 <p align="center">
-    <a href="https://codemastersolucoes.com" target="_blank">
-        <img data-testid="logo" src="https://cms-public-images.s3.amazonaws.com/logo.png">
-    </a>
+  <a href="https://codemastersolucoes.com" target="_blank">
+    <img data-testid="logo" src="https://cms-public-images.s3.amazonaws.com/logo.png">
+  </a>
 </p>
 
 # About this custom image
@@ -75,7 +75,7 @@ docker run -it --rm --name my-running-app my-php-app
 # Using with Docker Composer
 
 ```yaml
-version: '3.8'
+version: "3.8"
 services:
   my-service-name:
     image: codemastersolutions/php:8.0.11-fpm-alpine3.14
@@ -86,9 +86,9 @@ services:
       - ./supervisor-ini-path:/etc/supervisor.d
     ports:
       #Default port to PHP FMP
-      - '9000:9000'
+      - "9000:9000"
       #Default Port to Supervisor Web Server
-      - '9001:9001'
+      - "9001:9001"
     restart: always
     tty: true
 ```
