@@ -26,3 +26,4 @@ These images are customized from the official [PHP images registered on DockerHu
 - [PHP 8.0.2 FPM Alpine 3.13](https://github.com/gilsongabriel/docker-images/tree/main/PHP_8.0.2_FPM_Alpine_3.13)
 - [PHP 8.0.11 FPM Alpine 3.14](https://github.com/gilsongabriel/docker-images/tree/main/PHP_8.0.11_FPM_Alpine_3.14)
 - [PHP 8.1.4 FPM Alpine 3.15](https://github.com/gilsongabriel/docker-images/tree/main/PHP_8.1.4_FPM_Alpine_3.15)
+- [PHP 8.1.8 FPM Alpine 3.16](https://github.com/gilsongabriel/docker-images/tree/main/PHP_8.1.8_FPM_Alpine_3.16)
