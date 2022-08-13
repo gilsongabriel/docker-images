@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  php7333a315:
+    build: .
+    container_name: php7333a315
+    entrypoint: /usr/local/bin/docker-php-entrypoint
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+    restart: always
+    tty: true

@@ -1,16 +1,17 @@
 <p align="center">
-    <a href="https://codemastersolucoes.com" target="_blank">
-        <img data-testid="logo" src="https://cms-public-images.s3.amazonaws.com/logo.png">
-    </a>
+  <a href="https://codemastersolucoes.com" target="_blank">
+    <img data-testid="logo" src="https://cms-public-images.s3.amazonaws.com/logo.png">
+  </a>
 </p>
 
 # About this custom image
 
 This image is customized from the official [PHP 8.0.2 FPM Alpine 3.13](https://hub.docker.com/_/php) image,
 and added some packages to run applications [Laravel](https://laravel.com), along with some official packages:
- - [Horizon](https://laravel.com/docs/8.x/horizon)
- - [Telescope](https://laravel.com/docs/8.x/telescope)
- - [Socialite](https://laravel.com/docs/8.x/socialite)
+
+- [Horizon](https://laravel.com/docs/8.x/horizon)
+- [Telescope](https://laravel.com/docs/8.x/telescope)
+- [Socialite](https://laravel.com/docs/8.x/socialite)
 
 # What's included
 
@@ -81,12 +82,12 @@ services:
     container_name: my-container-name
     volumes:
       - ./app-src:/app
-#Path containing supervisor ini files with supervisor programs
+      #Path containing supervisor ini files with supervisor programs
       - ./supervisor-ini-path:/etc/supervisor.d
     ports:
-#Default port to PHP FMP
+      #Default port to PHP FMP
       - "9000:9000"
-#Default Port to Supervisor Web Server
+      #Default Port to Supervisor Web Server
       - "9001:9001"
     restart: always
     tty: true
@@ -95,7 +96,9 @@ services:
 # Accessing Supervisor Web Server
 
 ##### URL: http://localhost:9001
+
 ##### User: admin
+
 ##### Password: 123
 
 You can change the port, user and password in the supervisord config file, located in /etc/supervisord.conf.
