@@ -6,3 +6,5 @@ ARG ANGULAR_VERSION=14.1.2
 
 RUN apk add --no-cache bash
 RUN npm -i --location=global @nestjs/cli@$NEST_VERSION @vue/cli@$VUE_VERSION @angular/cli@$ANGULAR_VERSION
+
+USER node
