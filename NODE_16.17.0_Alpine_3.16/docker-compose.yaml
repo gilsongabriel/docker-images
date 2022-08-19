@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  node16170a316:
+    build: .
+    container_name: node16170a316
+    entrypoint: /usr/local/bin/docker-entrypoint.sh
+    restart: always
+    tty: true
